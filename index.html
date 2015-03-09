@@ -10,13 +10,55 @@
 			window.onload = function() {
 				var slides = [{
 					h2: 'Test Driven Development', 
-					h1: 'Mythology'
+					h1: 'Mythology',
+					p: 'github.com/bryzaguy - twitter: @bryzaguy'
 				}, {
-					h1: 'Myth #1:', 
-					h2: 'We have testers, that\'s TDD.'
+					h1: 'What is TDD?:', 
+					h2: 'Steps: Red, Green, Refactor.'
 				}, {
-					img: 'http://memecrunch.com/meme/RFH4/on-tdd/image.jpg',
-					h2: 'Myth #2: Features then tests.'
+					h1: 'Why TDD?', 
+					h2: 'Testing and Refactoring'
+				}, {
+					h1: 'Why TDD?',
+					h2: 'Design and Confidence'
+				}, {
+					h1: 'Skeptical?',
+					h3: 'Common Myths Debunked'
+				}, {
+					h2: 'Myth #1: Takes Too Long',
+					h3: 'because I must TDD everything'
+				}, {
+					h2: 'Myth #2: Takes Too Long',
+					h3: 'because I must refactor everything first'
+				}, {
+					h2: 'Myth #3: Takes Too Long',
+					h3: 'because it\'s hard'
+				}, {
+					h2: 'Myth #4: TDD == Unit Testing',
+					p: 'In object-oriented languages, each class is seen as a single unit. For the sake of separation of concerns, a unit test should always test only the functions of this single class.',
+					i: '- Stephan Wels'
+				}, {
+					h2: 'Myth #5: Unit > Integration Tests',
+					h3: 'but unit tests don\'t test as much'
+				}, {
+					h2: 'Myth #6: TDD induced damage',
+					p: 'dependency injection, duplicate tests'
+				}, {
+					h2: 'Myth #6: TDD induced damage',
+					p: 'randomized tests, 90% code coverage'
+				}, {
+					h2: 'Myth #7,8,9: I can\'t because ...',
+					p: 'need manager/product approval, no place to put them, fix failing tests first'
+				}, {
+					h2: 'Conclusion',
+					p: 'TDD for testing, refactoring, design, confidence'
+				}, {
+					h2: 'Conclusion',
+					p: 'Debunked some major myths'
+				}, {
+					h1: 'The End',
+					p: 'Micro JavaScript Testing Framework:',
+					strong: 'https://github.com/guardianjs/guardianjs'
 				}];
 
 				slides.reduce(function (e, slide) {
@@ -35,7 +77,7 @@
 
 				Reveal.initialize({
 					width: '90%',
-				  autoSlide: 5000,
+				  autoSlide: 15000,
 					height: '90%'
 				});
 			};
