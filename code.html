@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Composition Over Layers Example</title>
+		<script src="ace.js"></script>
+		<script src="mode-javascript.js"></script>
+		<script src="theme-monokai.js"></script>
+		<script>
+
+		  window.onload = function() {
+			  window.addEditor = function (id) {
+			    if (ace) {
+			      var editor = ace.edit(id);
+			      editor.name = id;
+				    editor.setTheme("ace/theme/monokai");
+				    editor.getSession().setMode("ace/mode/javascript");
+			      editor.getSession().setTabSize(2);
+			      editor.getSession().setUseSoftTabs(true);
+			      editor.renderer.setShowPrintMargin(false);
+			    }
+			  };
+
+			  var editors = document.getElementsByClassName('editor');
+
+			  for (var key in editors) {
+			  	if (editors[key].id) {
+			  		window.addEditor(editors[key].id);
+			  	}
+			  }
+		  };
+
+		</script>
+	</head>
+	<body>
+		<style type="text/css">
+	    .editor { 
+        position: block;
+        font-size: 10px;
+        height: 100%;
+        width: 100%;
+			}
+		</style>
+		<div id="specs" class="editor">function foo(items) {
+var x = "All this is syntax highlighted";
+return x;
+}</div>
+	</body>
+</html>

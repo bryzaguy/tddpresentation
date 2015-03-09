@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>TDD Mythology</title>
+		<link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/sky.css" id="theme">	
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.min.js"></script>
+		<script>
+			window.onload = function() {
+				var slides = [{
+					h2: 'Test Driven Development', 
+					h1: 'Mythology'
+				}, {
+					h1: 'Myth #1:', 
+					h2: 'We have testers, that\'s TDD.'
+				}, {
+					img: 'http://memecrunch.com/meme/RFH4/on-tdd/image.jpg',
+					h2: 'Myth #2: Features then tests.'
+				}];
+
+				slides.reduce(function (e, slide) {
+					var section = Object.keys(slide).reduce(function(s, key) {
+						 var e = s.appendChild(document.createElement(key));
+						 if (key === 'img') {
+						 	e.src = slide[key];
+						 } else {
+						 	e.innerHTML = slide[key];
+						 }
+						 return s;
+					}, document.createElement('section'));
+					e.appendChild(section);
+					return e;
+				}, document.getElementsByClassName('slides')[0]);
+
+				Reveal.initialize({
+					width: '90%',
+				  autoSlide: 5000,
+					height: '90%'
+				});
+			};
+		</script>
+	</head>
+	<body>
+		<style type="text/css">
+	    .code { 
+        height: 80%;
+        width: 100%;
+			}
+		</style>
+		<div class="reveal">
+			<div class="slides">
+			</div>
+		</div>
+	</body>
+</html>

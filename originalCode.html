@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Composition Over Layers Example</title>
+		<script src="ace.js"></script>
+		<script src="mode-javascript.js"></script>
+		<script src="theme-monokai.js"></script>
+		<script>
+
+		  window.onload = function() {
+			  window.addEditor = function (id) {
+			    if (ace) {
+			      var editor = ace.edit(id);
+			      editor.name = id;
+				    editor.setTheme("ace/theme/monokai");
+				    editor.getSession().setMode("ace/mode/javascript");
+			      editor.getSession().setTabSize(2);
+			      editor.getSession().setUseSoftTabs(true);
+			      editor.renderer.setShowPrintMargin(false);
+			      //editor.resize();
+			    }
+			  };
+
+			  var editors = document.getElementsByClassName('editor');
+
+			  for (var key in editors) {
+			  	if (editors[key].id) {
+			  		window.addEditor(editors[key].id);
+			  	}
+			  }
+		  };
+
+		</script>
+	</head>
+	<body>
+		<style type="text/css">
+	    .editor { 
+        position: block;
+        font-size: 14px;
+        height: 100%;
+        width: 100%;
+			}
+		</style>
+		<div id="specs" class="editor">
+function FooController($scope, fooService) {
+  $scope.total = 0;
+	$scope.description = '';
+
+  fooService.getAsync().then(function(result) {
+		if (result) {
+			$scope.total = result.total;
+			$scope.description = result.description;
+		}
+  });
+}
+
+function fooService($http) {
+  var orderPromise = $http.get('someurl');
+
+  this.getAsync = function () {
+    return orderPromise.then(function(result) {
+			return result.data;
+    });
+  };
+}
+		</div>
+	</body>
+</html>
